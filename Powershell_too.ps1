@@ -1,6 +1,6 @@
 ﻿#Artur-Mihk Peterson
 #13.12.2022
-#csv failist emailidest nimed
+#csv failist emailide nimed kätte saada ja faili panna
 
 
 #skripti asukoht
