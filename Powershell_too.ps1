@@ -8,9 +8,14 @@ $spath = $MyInvocation.Mycommand.Path
 $d = Split-path $spath
 
 #Küsin kasutajalt faili 
-$fail = Read-Host -prompt ("Sisesta csv faili nimi")
-if ($fail -like '*.csv*') {$kasutajad = Import-Csv $d\$fail}
-else {Write-Host "Pole .csv"}
+$loop = 1
+While ($loop -eq 1) 
+{
+    $fail = (Read-Host -prompt ("Sisesta csv faili nimi"))
+    if ([IO.Path]::GetExtension($fail) -eq '.csv') {
+    $loop = 0
+    
+$kasutajad = Import-Csv $d\$fail    
 #loop
 foreach ($kasutaja in $kasutajad)
 {
@@ -24,4 +29,15 @@ $oenimi = $enimi.substring(0,1).ToUpper()+$enimi.substring(1).tolower()
 $opnimi = $pnimi.substring(0,1).ToUpper()+$pnimi.substring(1).tolower()
 #faili copimine
 $oenimi+" "+$opnimi >> $d\nimed.txt
+}
+
+
+
+
+
+    }
+     
+    
+    else {"Ei ole csv fail"}
+
 }
